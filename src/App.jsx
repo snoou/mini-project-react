@@ -1,8 +1,9 @@
-
+import React from 'react';
+import Rating from './Component/Star/Star';
 function App(){
   return(
     <div>
-      <h1 className="font-bold text-3xl text-black">Hello World</h1>
+      <Rating/>
     </div>
   )
 }
