@@ -1,10 +1,34 @@
 import { useState } from "react";
 
+function Rating() {
+    const [count, setCount] = useState(0);
+    const [hover, setHover] = useState(0);
 
-function Star({ full, onClick, moveHaver, museHaver }) {
     return (
-        full ? (
-            <span onClick={onClick} onMouseEnter={museHaver} onMouseLeave={moveHaver} >
+        <div className="flex items-center gap-1">
+            {Array.from({ length: 5 }, (_, index) => (
+                <Star
+                    key={index}
+                    onClick={() => setCount(index + 1)}
+                    onMouseEnter={() => setHover(index + 1)}
+                    onMouseLeave={() => setHover(0)}
+                    full={hover ? hover >= index + 1 : index < count}
+                />
+            ))}
+            <span>{count}</span>
+        </div>
+    );
+}
+
+function Star({ full, onClick, onMouseEnter, onMouseLeave }) {
+    return (
+        <span
+            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            style={{ cursor: "pointer" }}
+        >
+            {full ? (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -14,9 +38,7 @@ function Star({ full, onClick, moveHaver, museHaver }) {
                 >
                     <path d="M12 2l2.92 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.08-1.01L12 2z" />
                 </svg>
-            </span>
-        ) : (
-            <span onClick={onClick}  onMouseEnter={museHaver} onMouseLeave={moveHaver}>
+            ) : (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -28,27 +50,8 @@ function Star({ full, onClick, moveHaver, museHaver }) {
                 >
                     <path d="M12 2l2.92 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.08-1.01L12 2z" />
                 </svg>
-            </span>
-        )
+            )}
+        </span>
     );
-
 }
-
-function Rating() {
-
-
-    const [count, setCount] = useState(0);
-    const [haver, setHaver] = useState(0);
-
-
-    return (
-        <div className="flex items-center gap-1">
-            {Array.from({ length: 5 }, (_, index) => (
-                <Star onClick={() => { setCount(index + 1) }} moveHaver={() => { setHaver(0) }} museHaver={() => { setHaver(index + 1) }} key={index} full={haver ? haver >= index + 1 : index < count} />))}
-            <span>{count}</span>
-        </div >
-
-    )
-}
-
 export default Rating;
