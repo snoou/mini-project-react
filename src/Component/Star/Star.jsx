@@ -26,7 +26,7 @@ function Star({ full, onClick, onMouseEnter, onMouseLeave }) {
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            style={{ cursor: "pointer" }}
+            className="cursor-pointer"
         >
             {full ? (
                 <svg
