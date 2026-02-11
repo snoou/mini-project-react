@@ -3,47 +3,73 @@ import React, { useRef, useEffect, useState } from "react";
 const ScrollVideo = () => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
+
   const [title, setTitle] = useState("Black Cat");
+
+  // متغیرهای نرم‌کننده
+  let targetTime = useRef(0);
+  let currentTime = useRef(0);
+  let rafId = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
 
+    if (!video || !container) return;
+
+    video.pause();
+
     const handleScroll = () => {
-      if (!video || !container) return;
-
       const scrolled = window.scrollY;
-      const maxScroll = container.scrollHeight - window.innerHeight;
-      let progress = scrolled / maxScroll;
+      const maxScroll =
+        container.scrollHeight - window.innerHeight;
 
+      let progress = scrolled / maxScroll;
       progress = Math.min(Math.max(progress, 0), 1);
 
       if (video.duration && !isNaN(video.duration)) {
-        video.currentTime = video.duration * progress;
+        targetTime.current = video.duration * progress;
       }
 
       // تغییر متن با اسکرول
-      if (progress < 0.33) setTitle("Black Cat");
-      else if (progress < 0.66) setTitle("Pure Focus");
+      if (progress < 0.03) setTitle("Black Cat");
+      else if (progress < 0.06) setTitle("Pure Focus");
       else setTitle("Cinematic Motion");
     };
 
-    window.addEventListener("scroll", handleScroll);
-    video?.pause();
+    const smoothUpdate = () => {
+      if (!videoRef.current) return;
 
-    return () => window.removeEventListener("scroll", handleScroll);
+      const ease = 0.08; // هرچی کمتر → نرم‌تر
+      currentTime.current +=
+        (targetTime.current - currentTime.current) * ease;
+
+      videoRef.current.currentTime = currentTime.current;
+
+      rafId.current = requestAnimationFrame(smoothUpdate);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    rafId.current = requestAnimationFrame(smoothUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId.current);
+    };
   }, []);
 
   return (
     <>
       {/* Scroll Section */}
-      <div ref={containerRef} className="relative h-[500vh] bg-black">
+      <div
+        ref={containerRef}
+        className="relative h-[500vh] bg-black"
+      >
         <div className="sticky top-0 h-screen w-full overflow-hidden">
-
           {/* Video */}
           <video
             ref={videoRef}
-            src="/LQb7XDLl.mp4"
+            src="/output_light.mp4"
             muted
             playsInline
             preload="auto"
@@ -52,14 +78,13 @@ const ScrollVideo = () => {
 
           {/* Overlay */}
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
-
-            <h1 className="text-5xl md:text-7xl font-bold tracking-wide drop-shadow-2xl">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-wide drop-shadow-2xl transition-all duration-300">
               {title}
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-white/80">
-              A scroll-driven cinematic experience with smooth motion and
-              minimal design.
+              A scroll-driven cinematic experience with smooth motion
+              and minimal design.
             </p>
 
             <button className="mt-10 rounded-full border border-white/50 bg-black/40 px-8 py-3 text-sm backdrop-blur-md transition hover:bg-white/10">
