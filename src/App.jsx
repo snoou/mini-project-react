@@ -164,4 +164,4 @@ export default function App() {
 }
 
 // پیش‌بارگذاری با مسیر نسبی
-useGLTF.preload('./input-transformed.glb')
+useGLTF.preload('blob:https://github.com/eb55a773-8671-44f8-a179-9e0bd35f9086')
