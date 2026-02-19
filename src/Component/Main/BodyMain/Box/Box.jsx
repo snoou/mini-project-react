@@ -10,7 +10,9 @@ function Box({ Info }) {
                 </div>
                 <div className='card-content'>
                     <div className='card-header'>
-                        <span className='card-tag'></span>
+                        <a href={Info.tag}>
+                            <span className='card-tag'>دمو</span>
+                        </a>
                         <h3>{Info.name}</h3>
                     </div>
                     <p>{Info.description}</p>
