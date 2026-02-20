@@ -26,9 +26,7 @@ function Main() {
     ];
     return (
         <div className='size'>
-            <header>
-                <HeaderMain />
-            </header>
+          
             <main>
                 <BodyMain projects= {projects} />
             </main>

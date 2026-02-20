@@ -55,3 +55,8 @@
     font-size: 0.9rem;
     margin: 0;
 }
+
+.link-card{
+    display: flex;
+    flex-direction: column;
+}

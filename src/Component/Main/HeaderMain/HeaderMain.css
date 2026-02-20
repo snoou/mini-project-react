@@ -1,8 +1,8 @@
 .header-main {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
-    padding: 20px 8%; 
+    justify-content: space-between;
+    padding: 20px 8%;
 }
 
 .header-main h1 {
@@ -33,7 +33,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .btn-heade-main:hover {
@@ -43,11 +43,11 @@
 
 @media (max-width: 768px) {
     .header-main {
-        padding: 15px 5%; 
+        padding: 15px 5%;
     }
 
     .header-main h1 {
-        font-size: 20px; 
+        font-size: 20px;
     }
 
     .space {
@@ -60,6 +60,8 @@
         font-size: 12px;
     }
 }
+
+
 
 @media (max-width: 480px) {
     .space {

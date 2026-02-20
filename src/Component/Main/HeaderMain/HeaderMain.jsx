@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './HeaderMain.css'
 
 function HeaderMain() {
@@ -8,14 +9,23 @@ function HeaderMain() {
             </div>
 
             <div className='space'>
-                <span>پروژه ها</span>
-                <span>درباره من</span>
-                <span>رزومه</span>
+                <Link to='/'>
+                    <span>پروژه ها</span>
+                </Link>
+
+                <Link to='/about'>
+                    <span>درباره من</span>
+                </Link>
+
+                <Link to='/task'>
+                    <span>روزانه</span>
+                </Link>
+
             </div>
 
             <button className='btn-heade-main'>ارتباط با من </button>
 
-        </div>
+        </div >
 
 
     )

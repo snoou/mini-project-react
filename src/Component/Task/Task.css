@@ -1,0 +1,16 @@
+.github {
+    min-height: 100vh;
+    background-color: #0d1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+    .github {
+        align-items: flex-start;
+    }
+}
