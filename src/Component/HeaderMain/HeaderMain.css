@@ -78,6 +78,11 @@
     margin: 0;
 }
 
+.bio span {
+    color: #F36F38;
+    font-weight: 800;
+}
+
 .bit-btn {
     background-color: #F36F38;
     color: white;
