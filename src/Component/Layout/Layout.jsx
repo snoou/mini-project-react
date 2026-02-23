@@ -1,4 +1,4 @@
-import HeaderMain from "../Main/HeaderMain/HeaderMain";
+import HeaderMain from "../HeaderMain/HeaderMain";
 import { Outlet } from "react-router";
 
 export default function Layout() {

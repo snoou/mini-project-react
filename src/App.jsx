@@ -1,4 +1,4 @@
-import HeaderMain from "./Component/Main/HeaderMain/HeaderMain"
+import HeaderMain from "./Component/HeaderMain/HeaderMain"
 
 function App() {
   return (
