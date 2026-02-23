@@ -19,9 +19,7 @@ function BodyMain({projects}) {
                     </p>
                 </div>
 
-                <div className=''>
-                    <img className='img-body-main' src="./bg.jpg" alt="bg" />
-                </div>
+                
             </div>
 
 

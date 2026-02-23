@@ -1,10 +1,5 @@
 .size{
-    padding: 0 60px;
+    margin: 0 60px ;
 }
 
 
-@media (max-width: 480px) {
-    .size {
-        padding: 0 5px;
-    }
-}

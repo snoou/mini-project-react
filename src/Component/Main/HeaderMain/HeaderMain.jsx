@@ -3,31 +3,32 @@ import './HeaderMain.css'
 
 function HeaderMain() {
     return (
-        <div className='header-main'>
+        <div className='header'>
             <div>
-                <h1>SNOOU</h1>
+                <div className='bg-img'>
+                    <img src="./bg.png" alt="profile" />
+                </div>
             </div>
 
-            <div className='space'>
-                <Link to='/'>
-                    <span>پروژه ها</span>
-                </Link>
+            <div className='header-lable'>
+                <ul className='lable'>
+                    <li>
+                        ارتباط با من
+                    </li>
+                    <li>
+                        پروژه
+                    </li>
 
-                <Link to='/about'>
-                    <span>درباره من</span>
-                </Link>
+                    <li>گیت‌هاب</li>
 
-                <Link to='/task'>
-                    <span>روزانه</span>
-                </Link>
+                </ul>
+                <div className='align-title'>
+                    <h1>SNOOU</h1>
+
+                </div>
 
             </div>
-
-            <button className='btn-heade-main'>ارتباط با من </button>
-
-        </div >
-
-
+        </div>
     )
 }
 
