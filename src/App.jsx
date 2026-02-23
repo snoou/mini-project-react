@@ -1,9 +1,8 @@
-import Main from "./Component/Main/Main"
+import HeaderMain from "./Component/Main/HeaderMain/HeaderMain"
+
 function App() {
   return (
     <div>
-      <Main />
-
     </div>
   )
 }

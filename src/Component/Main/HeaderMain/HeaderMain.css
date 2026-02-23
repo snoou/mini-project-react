@@ -1,8 +1,10 @@
+/* ====================
+   Desktop Styles
+   ==================== */
 .bg-img {
     width: 25rem;
     background-color: #A2D5F2;
     height: 30rem;
-    margin-top: -10px;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -20,7 +22,6 @@
     display: flex;
     gap: 3rem;
     font-size: 20px;
-
 }
 
 .header {
@@ -32,15 +33,112 @@
 .header-lable {
     display: flex;
     gap: 5rem;
-
+    position: relative;
 }
 
 .align-title {
-    margin-top: -10px;
     color: #F36F38;
 }
 
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #F36F38;
+    cursor: pointer;
+}
 
-@media (max-width: 768px){
+.bio {
+    width: 30rem;
+    text-align: end;
+}
 
+.bit-btn {
+    background-color: #F36F38;
+    color: white;
+    width: 20rem;
+    height: 3rem;
+    border-radius: 15px 20px;
+    font-weight: bold;
+    font-size: 18px;
+    
+
+   
+    
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 3rem;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .header>div:nth-child(2) {
+        display: contents;
+    }
+
+    .header-lable {
+        order: 1;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header>div:nth-child(1) {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .header>div:nth-child(2)>div:nth-child(2) {
+        order: 3;
+        text-align: center;
+        padding: 0 1.5rem;
+        line-height: 1.6;
+    }
+
+    .bg-img {
+        border-radius: 200px;
+        width: 20rem;
+        height: 25rem;
+    }
+
+    .bg-img img {
+        width: 16rem;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .lable {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 30%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        background-color: white;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        gap: 1.5rem;
+        z-index: 10;
+        text-align: center;
+    }
+
+    .open {
+        display: flex;
+    }
 }
