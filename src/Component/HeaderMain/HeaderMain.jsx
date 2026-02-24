@@ -38,7 +38,6 @@ function HeaderMain() {
                 </p>
                 <button className='bit-btn'>ارتباط با من</button>
             </div>
-
         </div>
     );
 }
